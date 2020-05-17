@@ -13,9 +13,14 @@
   };
 
   const displayError = (element, statusText) => {
-    const elem = buildElemWithValue('div', `GitHub API called failed with message ${statusText}`);
+    let msg = 'GitHub API called failed';
+    if (statusText.length === 0) {
+      msg = `GitHub API called failed with message ${statusText}`;
+    }
+    const elem = buildElemWithValue('div', msg);
+    elem.classList.add('repo');
     element.appendChild(elem);
-  }
+  };
 
   const getGitHubRepo = (repoName, onResult, onError) => {
     const xhr = new XMLHttpRequest();
@@ -28,8 +33,8 @@
     };
 
     xhr.onerror = () => {
-      onError(xhr.status, xhr.statusText)
-    }
+      onError(xhr.status, xhr.statusText);
+    };
   };
 
   const displayRepo = (element, repo) => {
@@ -39,7 +44,12 @@
     const nameElem = buildElemWithValue('div', repo.name);
     const descriptionElem = buildElemWithValue('div', repo.description);
     const languagesElem = buildElemWithValue('div', repo.language);
+    const createdByElem = buildElemWithValue('div', 'created by ijkTen');
+    const anchorToRepoElem = buildAnchorToRepo(repo);
+    const anchorToRepoStarsElem = buildAnchorToRepo(repo);
+    const anchorToAuth = buildAnchorToAuthor();
 
+    createdByElem.classList.add('createdby');
     languagesElem.classList.add('lang');
     nameElem.classList.add('name');
 
@@ -51,13 +61,20 @@
 
     const starsElem = buildStars(repo);
 
-    repoDiv.appendChild(nameElem);
+    anchorToRepoElem.appendChild(nameElem);
+    anchorToRepoStarsElem.appendChild(starsElem);
+    anchorToRepoStarsElem.classList.add('starsLink');
+    anchorToAuth.classList.add('createdByLink');
+    anchorToAuth.appendChild(createdByElem);
+
+    repoDiv.appendChild(anchorToRepoElem);
     ownerDiv.appendChild(avatarImg);
     ownerDiv.appendChild(owner);
     repoDiv.appendChild(ownerDiv);
-    repoDiv.appendChild(starsElem);
+    repoDiv.appendChild(anchorToRepoStarsElem);
     repoDiv.appendChild(detailsDiv);
     repoDiv.appendChild(languagesElem);
+    repoDiv.appendChild(anchorToAuth);
 
     repoDiv.classList.add('repo');
     element.appendChild(repoDiv);
@@ -102,7 +119,7 @@
     svg.setAttribute('viewBox', '0 -2 14 16');
     svg.setAttribute('aria-hidden', true);
 
-    // path.setAttribute('fill-rule', 'evenodd');
+    path.setAttribute('fill-rule', 'evenodd');
     path.setAttribute('d', 'M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z');
 
     div.classList.add('stars');
@@ -110,11 +127,23 @@
     svg.appendChild(path);
     svgSpan.appendChild(svg);
     svgSpan.appendChild(starElem);
-    // div.appendChild(svg);
-    // div.appendChild(starElem);
     div.appendChild(svgSpan);
     div.appendChild(starCountElem);
     return div;
+  };
+
+  const buildAnchorToRepo = (repo) => {
+    const anchorElem = document.createElement('a');
+    anchorElem.setAttribute('href', repo.html_url);
+    anchorElem.setAttribute('target', '_blank');
+    return anchorElem;
+  };
+
+  const buildAnchorToAuthor = () => {
+    const anchorElem = document.createElement('a');
+    anchorElem.setAttribute('href', 'https://github.com/ijkten/github-card');
+    anchorElem.setAttribute('target', '_blank');
+    return anchorElem;
   };
 
   init();

@@ -25,17 +25,18 @@
     const repoDiv = document.createElement('div');
     const owner = buildOwner(repo);
     const avatarImg = buildAvatarImage(repo);
-    const nameElem = buildElemWithValue('span', repo.name);
-    const descriptionElem = buildElemWithValue('span', repo.description);
+    const nameElem = buildElemWithValue('div', repo.name);
+    const descriptionElem = buildElemWithValue('div', repo.description);
     const languagesElem = buildElemWithValue('div', repo.language);
+    languagesElem.classList.add('lang');
 
     const ownerDiv = document.createElement('div');
     ownerDiv.classList.add('owner');
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('details');
-    detailsDiv.appendChild(nameElem);
     detailsDiv.appendChild(descriptionElem);
 
+    ownerDiv.appendChild(nameElem);
     ownerDiv.appendChild(avatarImg);
     ownerDiv.appendChild(owner);
     repoDiv.appendChild(ownerDiv);

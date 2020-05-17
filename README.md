@@ -1,2 +1,20 @@
 # Introduction
 A tool to display your GitHub repo on a page.
+
+## How to use
+Add a new div tag in your HTML like
+```
+<link href="eventually-on-a-cdn.css" rel="stylesheet" />
+<div data-repo="github-username/repo-name" />
+<script src="eventually-on-a-cdn.js></script>
+```
+
+### Working Example
+```
+<link href="../src/app.css" rel="stylesheet" />
+<div data-repo="ijkten/github-card"></div>
+<script src="../src/app.js"></script>
+```
+
+### What you get
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)

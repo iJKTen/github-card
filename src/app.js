@@ -5,7 +5,7 @@
     const elements = document.querySelectorAll('div[data-repo]');
     for (const element of elements) {
       getGitHubRepo(element.dataset.repo, (repo) => {
-        displayRepo(element, repo);
+        makeCard(element, repo);
       }, (statusCode, statusText) => {
         displayError(element, statusText);
       });
@@ -37,7 +37,7 @@
     };
   };
 
-  const displayRepo = (element, repo) => {
+  const makeCard = (element, repo) => {
     const repoDiv = document.createElement('div');
     const anchorToRepoElem = buildAnchorToRepo(repo);
     const nameElem = buildElemWithValue('div', repo.name);

@@ -39,44 +39,42 @@
 
   const displayRepo = (element, repo) => {
     const repoDiv = document.createElement('div');
-    const owner = buildOwner(repo);
-    const avatarImg = buildAvatarImage(repo);
+    const anchorToRepoElem = buildAnchorToRepo(repo);
     const nameElem = buildElemWithValue('div', repo.name);
+    const avatarImg = buildAvatarImage(repo);
+    const ownerDiv = document.createElement('div');
+    const ownerElem = buildOwner(repo);
+    const starsElem = buildStars(repo);
     const descriptionElem = buildElemWithValue('div', repo.description);
     const languagesElem = buildElemWithValue('div', repo.language);
-    const createdByElem = buildElemWithValue('div', 'widget by ijkTen');
-    const anchorToRepoElem = buildAnchorToRepo(repo);
     const anchorToRepoStarsElem = buildAnchorToRepo(repo);
     const anchorToAuth = buildAnchorToAuthor();
+    const createdByElem = buildElemWithValue('div', 'widget by ijkTen');
 
+    repoDiv.classList.add('repo');
     createdByElem.classList.add('createdby');
     languagesElem.classList.add('lang');
     nameElem.classList.add('name');
-
-    const ownerDiv = document.createElement('div');
     ownerDiv.classList.add('owner');
-    const detailsDiv = document.createElement('div');
-    detailsDiv.classList.add('details');
-    detailsDiv.appendChild(descriptionElem);
-
-    const starsElem = buildStars(repo);
+    descriptionElem.classList.add('desc');
+    anchorToRepoStarsElem.classList.add('lnk');
+    anchorToAuth.classList.add('lnk');
 
     anchorToRepoElem.appendChild(nameElem);
     anchorToRepoStarsElem.appendChild(starsElem);
-    anchorToRepoStarsElem.classList.add('starsLink');
-    anchorToAuth.classList.add('createdByLink');
     anchorToAuth.appendChild(createdByElem);
 
+    if (avatarImg) {
+      ownerDiv.appendChild(avatarImg);
+    }
+    ownerDiv.appendChild(ownerElem);
     repoDiv.appendChild(anchorToRepoElem);
-    ownerDiv.appendChild(avatarImg);
-    ownerDiv.appendChild(owner);
     repoDiv.appendChild(ownerDiv);
     repoDiv.appendChild(anchorToRepoStarsElem);
-    repoDiv.appendChild(detailsDiv);
+    repoDiv.appendChild(descriptionElem);
     repoDiv.appendChild(languagesElem);
     repoDiv.appendChild(anchorToAuth);
 
-    repoDiv.classList.add('repo');
     element.appendChild(repoDiv);
   };
 
@@ -143,6 +141,7 @@
     const anchorElem = document.createElement('a');
     anchorElem.setAttribute('href', 'https://github.com/ijkten/github-card');
     anchorElem.setAttribute('target', '_blank');
+    anchorElem.setAttribute('rel', 'nofollow noreferrer noopener');
     return anchorElem;
   };
 

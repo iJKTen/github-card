@@ -25,7 +25,7 @@
   text-align: center;
 }
 
-.repo .details {
+.repo .desc {
   padding: 16px 0px;
 }
 
@@ -39,8 +39,8 @@
   line-height: 26px;
 }
 
-.repo .starsLink,
-.repo .createdByLink {
+.repo .lnk,
+.repo .lnk {
   color: #000;
 }
 

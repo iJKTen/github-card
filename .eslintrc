@@ -9,7 +9,6 @@
     "comma-dangle": ["error", "never"],
     "prefer-template": "error",
     "complexity": ["error", 50],
-    "max-len": ["error", {"code": 120}],
     "consistent-return": 2,
     "indent": [1, 2],
     "no-else-return": 1,

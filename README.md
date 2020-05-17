@@ -17,4 +17,4 @@ Add a new div tag in your HTML like
 ```
 
 ### What you get
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Example output](https://raw.githubusercontent.com/iJKTen/github-card/master/public/example.png)

@@ -1,5 +1,3 @@
-# WORK IN PROGRESS
-
 # Introduction
 A widget to display your GitHub repo on a page.
 

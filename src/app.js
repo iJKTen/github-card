@@ -44,7 +44,7 @@
     const nameElem = buildElemWithValue('div', repo.name);
     const descriptionElem = buildElemWithValue('div', repo.description);
     const languagesElem = buildElemWithValue('div', repo.language);
-    const createdByElem = buildElemWithValue('div', 'created by ijkTen');
+    const createdByElem = buildElemWithValue('div', 'widget by ijkTen');
     const anchorToRepoElem = buildAnchorToRepo(repo);
     const anchorToRepoStarsElem = buildAnchorToRepo(repo);
     const anchorToAuth = buildAnchorToAuthor();

@@ -1,7 +1,7 @@
 # WORK IN PROGRESS
 
 # Introduction
-A tool to display your GitHub repo on a page.
+A widget to display your GitHub repo on a page.
 
 ## How to use
 Add a new div tag in your HTML like

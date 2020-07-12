@@ -1,40 +1,41 @@
-(function() {
+(function () {
   'use strict';
 
   const init = () => {
     const elements = document.querySelectorAll('div[data-repo]');
     for (const element of elements) {
-      getGitHubRepo(element.dataset.repo, (repo) => {
-        makeCard(element, repo);
-      }, (statusCode, statusText) => {
-        displayError(element, statusText);
-      });
+      getGitHubRepoPromise(element.dataset.repo)
+        .then((repo) => {
+          makeCard(element, repo);
+        })
+        .catch((error) => {
+          displayError(element, error);
+        });
     }
   };
 
   const displayError = (element, statusText) => {
-    let msg = 'GitHub API called failed';
-    if (statusText.length === 0) {
-      msg = `GitHub API called failed with message ${statusText}`;
-    }
+    const msg = `GitHub API called failed with message ${statusText.message}`;
     const elem = buildElemWithValue('div', msg);
     elem.classList.add('repo');
     element.appendChild(elem);
   };
 
-  const getGitHubRepo = (repoName, onResult, onError) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://api.github.com/repos/${repoName}`);
-    xhr.send();
+  const getGitHubRepoPromise = (repoName) => {
+    return new Promise(function (resolve, reject) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `https://api.github.com/repos/${repoName}`);
+      xhr.send();
 
-    xhr.onload = () => {
-      const data = JSON.parse(xhr.response);
-      onResult(data);
-    };
+      xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        resolve(data);
+      };
 
-    xhr.onerror = () => {
-      onError(xhr.status, xhr.statusText);
-    };
+      xhr.onerror = () => {
+        reject(new Error(`request return status ${xhr.status} with message ${xhr.statusText}`));
+      };
+    });
   };
 
   const makeCard = (element, repo) => {

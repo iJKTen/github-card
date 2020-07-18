@@ -3,11 +3,11 @@ A widget to display your GitHub repo on a page.
 
 ![Example output](https://raw.githubusercontent.com/iJKTen/github-card/master/public/example.png)
 
-GitHub Card is created via web components and in your HTML file you can use it via a custom element <github-card></github-card>
+GitHub Card is created via web components and in your HTML file you can use it via a custom element
 
 ## How to use
 Include the element.js file in your HTML file.
-Add a new div tag in your HTML like
+Add a new tag in your HTML like
 ```
 <github-card repo="ijkten/github-card"></github-card>
 ```

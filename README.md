@@ -1,28 +1,22 @@
 # Introduction
 A widget to display your GitHub repo on a page.
 
+![Example output](https://raw.githubusercontent.com/iJKTen/github-card/master/public/example.png)
+
+GitHub Card is created via web components and in your HTML file you can use it via a custom element <github-card></github-card>
+
 ## How to use
+Include the element.js file in your HTML file.
 Add a new div tag in your HTML like
 ```
-<link href="eventually-on-a-cdn.css" rel="stylesheet" />
-<div data-repo="github-username/repo-name" />
-<script src="eventually-on-a-cdn.js></script>
+<github-card repo="ijkten/github-card"></github-card>
 ```
 
 You can use it multiple times like
 ```
-<link href="eventually-on-a-cdn.css" rel="stylesheet" />
-<div data-repo="github-username/repo-name" />
-<div data-repo="github-username/another-repo-name" />
-<script src="eventually-on-a-cdn.js></script>
+<github-card repo="ijkten/github-card"></github-card>
+<github-card repo="ijkten/punions-client"></github-card>
 ```
 
-### Working Example
-```
-<link href="../src/app.css" rel="stylesheet" />
-<div data-repo="ijkten/github-card"></div>
-<script src="../src/app.js"></script>
-```
-
-### What you get
-![Example output](https://raw.githubusercontent.com/iJKTen/github-card/master/public/example.png)
+## To Do
+1. Package as an npm module

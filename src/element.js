@@ -142,7 +142,6 @@ window.addEventListener('load', () => {
             starCount.innerHTML = data.stargazers_count;
             desc.innerHTML = data.description;
             lang.innerHTML = data.language;
-            console.log(data);
           })
           .catch((error) => {
             console.log(error);

@@ -112,8 +112,9 @@ window.addEventListener('load', () => {
             </a>
             <div class='desc'></div>
             <div class='lang'></div>
-            <a class='createdBy' href='//GitHub.com/iJKTen/GitHub-Card' target='_blank' rel='noopener nofollow noreferrer'>
-              <div class='createdBy'>widget by iJKTen</a>
+            <a class='createdBy' href='//GitHub.com/iJKTen/GitHub-Card' 
+                target='_blank' rel='noopener nofollow noreferrer'>
+              <div class='createdBy'>widget by iJKTen</div>
             </a>
           </div>
         `;

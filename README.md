@@ -19,4 +19,5 @@ You can use it multiple times like
 ```
 
 ## To Do
-1. Package as an npm module
+1. Handle error cases
+2. Package as an npm module

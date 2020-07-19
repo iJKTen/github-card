@@ -1,4 +1,4 @@
-# Introduction
+# GitHub Card
 A widget to display your GitHub repo on a page.
 
 ![Example output](https://raw.githubusercontent.com/iJKTen/github-card/master/public/example.png)

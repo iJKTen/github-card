@@ -5,6 +5,14 @@ A widget to display your GitHub repo on a page.
 
 GitHub Card is created via web components and in your HTML file you can use it via a custom element
 
+## Installation
+1. Clone the repo
+2. Run the command shown below
+```
+npm install
+```
+3. Open index.html in a browser which is located in the public folder
+
 ## How to use
 Include the element.js file in your HTML file.
 Add a new tag in your HTML like

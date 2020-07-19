@@ -14,7 +14,7 @@ npm install
 3. Open index.html in a browser which is located in the public folder
 
 ## How to use
-Include the element.js file in your HTML file.
+Include the element.js file in your HTML file. The repo attribute needs to be in the format of username/reponame
 Add a new tag in your HTML like
 ```
 <github-card repo="ijkten/github-card"></github-card>
